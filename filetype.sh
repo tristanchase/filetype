@@ -7,25 +7,25 @@
 for filename in "$@"; do
 
    if [[ -d ${filename} ]]; then	#directory
-     echo -e "${filename} [/]"
+     echo -e "${filename}\t[/]"
 
    elif [[ -x ${filename} ]]; then	#executable
-     echo -e "${filename} [*]"
+     echo -e "${filename}\t[*]"
 
    elif [[ -p ${filename} ]]; then	#pipe
-     echo -e "${filename} [|]"
+     echo -e "${filename}\t[|]"
 
    elif [[ -L ${filename} ]]; then	#link
-     echo -e "${filename} [@]"
+     echo -e "${filename}\t[@]"
 
    elif [[ -S ${filename} ]]; then	#socket
-     echo -e "${filename} [=]"
+     echo -e "${filename}\t[=]"
 
    elif [[ -f ${filename} ]]; then	#file
      echo -e "${filename}"
 
    else
-     echo -e "${filename} [?]"		#unknown
+     echo -e "${filename}\t[?]"		#unknown
 
    fi
 done
