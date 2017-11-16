@@ -16,7 +16,7 @@ for filename in "$@"; do
      echo -e "${filename}\t[|]"
 
    elif [[ -L ${filename} ]]; then	#link
-     echo -e "${filename}\t[@]"
+     echo -e "${filename}\t[@] -> `readlink ${filename}`"
 
    elif [[ -S ${filename} ]]; then	#socket
      echo -e "${filename}\t[=]"
